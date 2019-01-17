@@ -9,4 +9,10 @@ mkdir -p /var/lib/nginx/logs
 mkdir -p /var/lib/nginx/tmp
 sed -i "s/#LISTEN_PORT#/${LISTEN_PORT}/" ${CONF_FILE}
 
-php-fpm -d variables_order="EGPCS" && exec nginx -g "daemon off;"
+nohup php-fpm -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
+while true
+do
+  echo "`hostname`: `date`" >> /var/hehe.txt
+  sleep 1
+  ls -l /var/hehe.txt
+done
