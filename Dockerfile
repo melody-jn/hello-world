@@ -12,12 +12,6 @@ ADD nginx.conf /etc/nginx/
 ADD php-fpm.conf /etc/php5/php-fpm.conf
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
-RUN useradd --create-home --no-log-init --shell /bin/bash norootuser
-RUN useradd --create-home --no-log-init --shell /bin/bash nopasswduser
-RUN echo 'nopasswduser ALL=(ALL) NOPASSWD: ALL' >> /etc/sudoers
-RUN useradd --create-home --no-log-init --shell /bin/bash mynewuser
-RUN adduser mynewuser sudo
-RUN echo 'mynewuser:mynewpassword' | chpasswd
 
 ENV LISTEN_PORT=80
 
