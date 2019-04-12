@@ -6,7 +6,7 @@ RUN apk update && apk add -u nginx php5-fpm curl wget vim && \
 #RUN apt-get update && \
 #        apt-get -y install curl vim nginx php5-fpm && \
 #        mkdir -p /run/nginx
-
+ADD default.conf /etc/nginx/conf.d/
 ADD www /www
 ADD nginx.conf /etc/nginx/
 ADD php-fpm.conf /etc/php5/php-fpm.conf
