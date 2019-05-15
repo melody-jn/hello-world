@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-RUN apk update && apk add -u nginx php5-fpm curl wget vim && \
+RUN apk update && apk add -u nginx php5-fpm curl wget vim python-dev && \
     mkdir -p /run/nginx
 #FROM index.alauda.cn/library/ubuntu:16.04
 #RUN apt-get update && \
