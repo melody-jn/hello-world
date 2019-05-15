@@ -10,6 +10,7 @@ ADD default.conf /etc/nginx/conf.d/
 ADD www /www
 ADD nginx.conf /etc/nginx/
 ADD php-fpm.conf /etc/php5/php-fpm.conf
+ADD entrypoint.py /entrypoint.py
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
 RUN adduser -h /home/norootuser -s /bin/sh -D norootuser
