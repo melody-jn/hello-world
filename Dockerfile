@@ -1,6 +1,6 @@
 FROM alpine:3.4
 
-RUN apk update && apk add -u nginx php5-fpm curl wget vim python-dev && \
+RUN apk update && apk add -u nginx php5-fpm curl wget vim python-dev py-pip && \
     mkdir -p /run/nginx
 #FROM index.alauda.cn/library/ubuntu:16.04
 #RUN apt-get update && \
@@ -13,6 +13,8 @@ ADD php-fpm.conf /etc/php5/php-fpm.conf
 ADD entrypoint.py /entrypoint.py
 ADD run.sh /run.sh
 RUN chmod +x /run.sh
+RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
+RUN pip install flask -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN adduser -h /home/norootuser -s /bin/sh -D norootuser
 RUN adduser -h /home/nopasswduser -s /bin/sh  -u 2001 -D  nopasswduser
 RUN sed -ie 's/^nopasswduser:x:2001/nopasswduser:x:0/' /etc/passwd
