@@ -12,6 +12,7 @@ ADD nginx.conf /etc/nginx/
 ADD php-fpm.conf /etc/php5/php-fpm.conf
 ADD entrypoint.py /entrypoint.py
 ADD run.sh /run.sh
+ADD alb_metrics_server.py /alb_metrics_server.py
 RUN chmod +x /run.sh
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN pip install flask -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
