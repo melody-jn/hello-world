@@ -1,6 +1,6 @@
-FROM alpine:3.4
+FROM alpine:3.11
 
-RUN apk update && apk add -u nginx php5-fpm curl wget vim python-dev py-pip && \
+RUN apk update && apk add -u nginx php7-fpm curl wget vim python-dev py-pip && \
     mkdir -p /run/nginx
 #FROM index.alauda.cn/library/ubuntu:16.04
 #RUN apt-get update && \
@@ -9,7 +9,7 @@ RUN apk update && apk add -u nginx php5-fpm curl wget vim python-dev py-pip && \
 ADD default.conf /etc/nginx/conf.d/
 ADD www /www
 ADD nginx.conf /etc/nginx/
-ADD php-fpm.conf /etc/php5/php-fpm.conf
+ADD php-fpm.conf /etc/php7/php-fpm.conf
 ADD entrypoint.py /entrypoint.py
 ADD run.sh /run.sh
 ADD alb_metrics_server.py /alb_metrics_server.py
