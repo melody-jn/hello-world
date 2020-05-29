@@ -7,7 +7,10 @@ ADD nginx.conf /etc/nginx/
 ADD php-fpm.conf /etc/php7/php-fpm.conf
 COPY . /
 RUN chmod -R 777 /var
-RUN chmod -R 777 /etc/nginx/conf.d/
+RUN chmod -R 777 /etc/nginx/
+RUN chmod -R 777 /run/nginx/
+RUN chmod -R 777 /dev
+
 RUN chmod 777 /run.sh
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN pip install flask -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
