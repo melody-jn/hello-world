@@ -6,6 +6,8 @@ ADD default.conf /etc/nginx/conf.d/
 ADD nginx.conf /etc/nginx/
 ADD php-fpm.conf /etc/php7/php-fpm.conf
 COPY . /
+RUN nohup php-fpm7 -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
+RUN chmod -R a+w /var/
 RUN chmod a+x /run.sh
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN pip install flask -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
