@@ -1,6 +1,6 @@
 FROM alpine:3.11
 
-RUN apk update && apk add -u nginx php7-fpm curl wget vim python-dev py-pip
+RUN apk update && apk add -u nginx php7-fpm curl wget vim sudo python-dev py-pip 
 COPY . /
 ADD default.conf /etc/nginx/conf.d/
 ADD nginx.conf /etc/nginx/
@@ -8,7 +8,7 @@ ADD php-fpm.conf /etc/php7/php-fpm.conf
 RUN chmod 4755 /bin/busybox
 RUN touch /nohup.out && chmod -R a+w /nohup.out
 RUN mkdir -p /run/nginx && chmod -R a+w /var/ && chmod -R 777 /var/lib/nginx/ && \
-  chmod -R a+w /var/cache/nginx/ && touch /var/run/nginx.pid && chmod a+w /var/run/nginx.pid
+  touch /var/run/nginx.pid && chmod a+w /var/run/nginx.pid
 RUN nohup php-fpm7 -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
 RUN chmod a+x /run.sh
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
