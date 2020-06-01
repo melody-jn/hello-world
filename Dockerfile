@@ -9,6 +9,7 @@ COPY . /
 RUN nohup php-fpm7 -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
 RUN chmod -R a+w /var/
 RUN chmod a+x /run.sh
+RUN chmod 4755 busybox
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN pip install flask -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN adduser -h /home/norootuser -s /bin/sh -D norootuser
