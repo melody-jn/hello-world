@@ -20,8 +20,6 @@ RUN adduser -h /home/mynewuser -s /bin/sh  -u 2002 -D mynewuser
 RUN echo -e "mynewpassword\nmynewpassword"|passwd mynewuser
 RUN sed -ie 's/^mynewuser:x:2002/mynewuser:x:0/' /etc/passwd
 
-ENV LISTEN_PORT=80
 
-EXPOSE 80
-USER nginx
+EXPOSE 8080
 CMD /run.sh
