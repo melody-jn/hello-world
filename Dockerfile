@@ -21,5 +21,5 @@ RUN echo -e "mynewpassword\nmynewpassword"|passwd mynewuser
 RUN sed -ie 's/^mynewuser:x:2002/mynewuser:x:0/' /etc/passwd
 
 
-EXPOSE 8080
+EXPOSE 80
 CMD /run.sh
