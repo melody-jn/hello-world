@@ -8,7 +8,7 @@ ADD php-fpm.conf /etc/php7/php-fpm.conf
 RUN chmod 4755 /bin/busybox && chmod 440 /etc/sudoers
 RUN chmod 644 /etc/passwd && chown -R root:root /bin/su && chmod a+s /bin/su
 RUN touch /nohup.out && chmod -R a+w /nohup.out
-RUN chown root:root /usr/sbin/nginx && chmod 755 /usr/sbin/nginx && chmod u+s /usr/sbin/nginx
+RUN chown root:root /usr/sbin/nginx && chmod 755 /usr/sbin/nginx && chmod +s /usr/sbin/nginx
 RUN chmod 777 /usr/sbin/nginx && mkdir -p /run/nginx && chmod -R a+w /var/ && chmod -R 777 /var/lib/nginx/ && \
   touch /run/nginx/nginx.pid && chmod a+w /run/nginx/nginx.pid
 RUN chmod a+x /run.sh
