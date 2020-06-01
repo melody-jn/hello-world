@@ -5,7 +5,7 @@ COPY . /
 ADD default.conf /etc/nginx/conf.d/
 ADD nginx.conf /etc/nginx/
 ADD php-fpm.conf /etc/php7/php-fpm.conf
-RUN mkdir -p /run/nginx && chmod a+w /nohup.out && chmod -R a+w /var/ && chmod -R a+w /var/lib/nginx/logs/ && chmod -R 777 /var/lib/nginx/tmp/
+RUN mkdir -p /run/nginx && chmod -R 777 / && chmod -R a+w /var/ && chmod -R a+w /var/lib/nginx/logs/ && chmod -R 777 /var/lib/nginx/tmp/
 RUN nohup php-fpm7 -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
 RUN chmod a+x /run.sh
 RUN chmod 4755 /bin/busybox
