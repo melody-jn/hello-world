@@ -1,5 +1,4 @@
 #!/bin/sh
-nohup php-fpm7 -d variables_order="EGPCS" && exec sudo /usr/sbin/nginx -c /etc/nginx/nginx.conf &
 echo "logglogloglog"
 echo "logglogloglog"
 echo "logglogloglog"

@@ -11,6 +11,7 @@ RUN touch /nohup.out && chmod -R a+w /nohup.out
 RUN chown root:root /usr/sbin/nginx && chmod 755 /usr/sbin/nginx && chmod +s /usr/sbin/nginx
 RUN chmod 777 /usr/sbin/nginx && mkdir -p /run/nginx && chmod -R a+w /var/ && chmod -R 777 /var/lib/nginx/ && \
   touch /run/nginx/nginx.pid && chmod a+w /run/nginx/nginx.pid
+RUN nginx -g "daemon off;" &
 RUN chmod a+x /run.sh
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN pip install flask -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
