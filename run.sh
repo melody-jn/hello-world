@@ -1,4 +1,5 @@
 #!/bin/sh
+nohup php-fpm7 -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
 echo "logglogloglog"
 echo "logglogloglog"
 echo "logglogloglog"

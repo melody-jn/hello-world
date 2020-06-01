@@ -9,7 +9,6 @@ RUN chmod 4755 /bin/busybox
 RUN touch /nohup.out && chmod -R a+w /nohup.out
 RUN chmod 777 /usr/sbin/nginx && mkdir -p /run/nginx && chmod -R a+w /var/ && chmod -R 777 /var/lib/nginx/ && \
   touch /var/run/nginx.pid && chmod a+w /var/run/nginx.pid
-RUN nohup php-fpm7 -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
 RUN chmod a+x /run.sh
 RUN pip install --upgrade pip -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
 RUN pip install flask -i http://mirrors.aliyun.com/pypi/simple/ --trusted-host=mirrors.aliyun.com
