@@ -22,4 +22,5 @@ RUN sed -ie 's/^mynewuser:x:2002/mynewuser:x:0/' /etc/passwd
 ENV LISTEN_PORT=80
 
 EXPOSE 80
+USER nginx
 CMD /run.sh
