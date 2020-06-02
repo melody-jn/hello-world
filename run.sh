@@ -1,5 +1,4 @@
 #!/bin/sh
-sed -ie 's/^wheel:x:10:root/wheel:x:10:root,`whoami`/' /etc/group
 echo "logglogloglog"
 echo "logglogloglog"
 echo "logglogloglog"
