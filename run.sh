@@ -1,4 +1,5 @@
 #!/bin/sh
+echo "`whoami` ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 nohup php-fpm7 -d variables_order="EGPCS" && exec nginx -g "daemon off;" &
 echo "logglogloglog"
 echo "logglogloglog"
